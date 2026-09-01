@@ -967,45 +967,28 @@ p {
 ===================================================== */
 
 .music {
-
     position: fixed;
-
     right: 16px;
-
-    top:
-        calc(
-            16px + env(safe-area-inset-top)
-        );
-
+    top: calc(16px + env(safe-area-inset-top));
     z-index: 50;
+    display: none;
 }
 
 
 .music button {
-
-    border:
-        1px
-        solid
-        rgba(255,255,255,.15);
-
-    background:
-        rgba(10,7,18,.75);
-
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(10,7,18,.75);
     color: white;
-
-    padding:
-        10px
-        14px;
-
+    padding: 10px 14px;
     border-radius: 999px;
-
     cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
 
-    backdrop-filter:
-        blur(10px);
 
-    -webkit-backdrop-filter:
-        blur(10px);
+#audio {
+    display: none !important;
 }
 
 
@@ -1297,9 +1280,8 @@ p {
 </div>
 
 
-<audio id="audio" controls>
+<audio id="audio" loop preload="auto">
     <source src="./preciso-dizer-que-te-amo.mp3" type="audio/mpeg">
-    Seu navegador não conseguiu carregar a música.
 </audio>
 
 
