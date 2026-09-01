@@ -1578,17 +1578,6 @@ p {
 <div id="hearts"></div>
 
 
-<!-- =====================================================
-     TELA DE LOGIN
-===================================================== -->
-
-<div id="loginScreen">
-
-    <div class="login-box">
-
-        <div class="login-heart">
-            ♡
-        </div>
 
 
         <!-- PRIMEIRA ETAPA -->
@@ -2720,72 +2709,24 @@ function normalizeText(text) {
 function checkPassword() {
 
     const input =
-        document.getElementById("password");
+        document.getElementById("passwordInput");
 
     const error =
         document.getElementById("passwordError");
 
-    const password =
-        input.value;
-
-    if (password === SITE_PASSWORD) {
-
-        error.innerText = "";
-
-        document
-            .getElementById("loginStep1")
-            .classList.remove("active");
-
-        document
-            .getElementById("loginStep2")
-            .classList.add("active");
-
-        setTimeout(() => {
-
-            document
-                .getElementById("childName")
-                .focus();
-
-        }, 100);
-
-    } else {
-
-        error.innerText =
-            "Hmm... essa não é a senha. Tenta de novo. 🤭";
-
-        input.value = "";
-
-        input.focus();
-
-    }
-
-}
-
-
-/* =====================================================
-   VERIFICA NOME
-===================================================== */
-
-function checkChildName() {
-
-    const input =
-        document.getElementById("childName");
-
-    const error =
-        document.getElementById("childError");
-
     const answer =
         normalizeText(input.value);
 
-    const correctName =
-        normalizeText(CHILD_NAME);
+    const correctPassword =
+        normalizeText(SITE_PASSWORD);
 
-    if (answer === correctName) {
+
+    if (answer === correctPassword) {
 
         error.innerText = "";
 
         const login =
-            document.getElementById("loginScreen");
+            document.getElementById("passwordScreen");
 
         login.style.opacity = "0";
 
@@ -2805,7 +2746,7 @@ function checkChildName() {
     } else {
 
         error.innerText =
-            "Não é esse nome... pensa direitinho. ❤️";
+            "Hmm... acho que você não deveria estar aqui. 🤨";
 
         input.value = "";
 
@@ -2814,7 +2755,6 @@ function checkChildName() {
     }
 
 }
-
 
 /* =====================================================
    ESTRELAS
