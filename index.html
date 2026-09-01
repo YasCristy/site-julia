@@ -10,6 +10,7 @@
 
 <title>Para Julia da Luz ✨</title>
 
+
 <style>
 
 /* =====================================================
@@ -25,6 +26,7 @@ html {
 }
 
 body {
+
     margin: 0;
 
     background:
@@ -65,7 +67,9 @@ input {
 ===================================================== */
 
 #sky {
+
     position: fixed;
+
     inset: 0;
 
     pointer-events: none;
@@ -76,6 +80,7 @@ input {
 }
 
 .star {
+
     position: absolute;
 
     width: 2px;
@@ -98,15 +103,19 @@ input {
 @keyframes twinkle {
 
     to {
+
         opacity: 1;
-        transform: scale(1.6);
+
+        transform:
+            scale(1.6);
+
     }
 
 }
 
 
 /* =====================================================
-   PROTEÇÃO / TELA DE SENHA
+   TELA ÚNICA DE SENHA
 ===================================================== */
 
 #loginScreen {
@@ -142,13 +151,21 @@ input {
 
     overflow-y: auto;
 
+    transition:
+        opacity
+        .6s
+        ease;
+
 }
 
 .login-box {
 
-    width: min(450px, 100%);
+    width:
+        min(450px, 100%);
 
-    padding: 35px 28px;
+    padding:
+        35px
+        28px;
 
     text-align: center;
 
@@ -185,6 +202,7 @@ input {
         pulse
         2.2s
         infinite;
+
 }
 
 .login-box h1 {
@@ -200,7 +218,11 @@ input {
         serif;
 
     font-size:
-        clamp(38px, 10vw, 55px);
+        clamp(
+            38px,
+            10vw,
+            55px
+        );
 
     line-height: 1;
 
@@ -262,7 +284,8 @@ input {
 
     font-size: 16px;
 
-    transition: .25s;
+    transition:
+        .25s;
 
 }
 
@@ -302,7 +325,8 @@ input {
             #c49ade
         );
 
-    color: #170b18;
+    color:
+        #170b18;
 
     padding:
         15px
@@ -316,7 +340,8 @@ input {
 
     margin-top: 22px;
 
-    transition: .25s;
+    transition:
+        .25s;
 
 }
 
@@ -340,38 +365,9 @@ input {
 
 }
 
-.login-step {
-
-    display: none;
-
-}
-
-.login-step.active {
-
-    display: block;
-
-    animation:
-        appear
-        .5s
-        ease
-        both;
-
-}
-
-.login-note {
-
-    margin-top: 20px !important;
-
-    font-size: 12px !important;
-
-    color:
-        #aaa0ac !important;
-
-}
-
 
 /* =====================================================
-   TELAS
+   CONTEÚDO DO SITE
 ===================================================== */
 
 #siteContent {
@@ -381,6 +377,11 @@ input {
     z-index: 1;
 
 }
+
+
+/* =====================================================
+   TELAS
+===================================================== */
 
 .screen {
 
@@ -420,15 +421,21 @@ input {
 @keyframes appear {
 
     from {
+
         opacity: 0;
+
         transform:
             translateY(25px);
+
     }
 
     to {
+
         opacity: 1;
+
         transform:
             translateY(0);
+
     }
 
 }
@@ -578,7 +585,8 @@ p {
             #c49ade
         );
 
-    color: #170b18;
+    color:
+        #170b18;
 
     padding:
         14px
@@ -592,7 +600,8 @@ p {
 
     margin-top: 12px;
 
-    transition: .25s;
+    transition:
+        .25s;
 
     box-shadow:
         0
@@ -671,7 +680,8 @@ p {
 
     display: none;
 
-    transition: .25s;
+    transition:
+        .25s;
 
     font-size: 14px;
 
@@ -1045,7 +1055,8 @@ p {
         infinite
         alternate;
 
-    transition: .2s;
+    transition:
+        .2s;
 
 }
 
@@ -1556,6 +1567,7 @@ p {
 
 }
 
+
 </style>
 
 </head>
@@ -1578,125 +1590,61 @@ p {
 <div id="hearts"></div>
 
 
+<!-- =====================================================
+     TELA DE LOGIN
+===================================================== -->
 
+<div id="loginScreen">
 
-        <!-- PRIMEIRA ETAPA -->
+    <div class="login-box">
 
-        <div
-            class="login-step active"
-            id="loginStep1">
-
-            <div class="eyebrow">
-                antes de entrar...
-            </div>
-
-            <h1>
-                Um lugar só nosso.
-            </h1>
-
-            <p>
-                Se você chegou até aqui,
-                provavelmente deveria conhecer
-                a senha. 🤭
-            </p>
-
-
-            <label
-                class="login-label"
-                for="password">
-
-                Senha
-
-            </label>
-
-
-            <input
-                class="login-input"
-                id="password"
-                type="password"
-                placeholder="digite a senha"
-                autocomplete="off"
-                onkeydown="if(event.key === 'Enter') checkPassword()"
-            >
-
-
-            <button
-                class="login-btn"
-                type="button"
-                onclick="checkPassword()">
-
-                entrar ♡
-
-            </button>
-
-
-            <div
-                class="login-error"
-                id="passwordError">
-            </div>
-
+        <div class="login-heart">
+            ♡
         </div>
 
-
-        <!-- SEGUNDA ETAPA -->
-
-        <div
-            class="login-step"
-            id="loginStep2">
-
-            <div class="eyebrow">
-                só mais uma coisa...
-            </div>
-
-            <h1>
-                Uma perguntinha.
-            </h1>
-
-            <p>
-                Qual o nome do seu filho?
-            </p>
-
-
-            <label
-                class="login-label"
-                for="childName">
-
-                Resposta
-
-            </label>
-
-
-            <input
-                class="login-input"
-                id="childName"
-                type="text"
-                placeholder="digite o nome"
-                autocomplete="off"
-                onkeydown="if(event.key === 'Enter') checkChildName()"
-            >
-
-
-            <button
-                class="login-btn"
-                type="button"
-                onclick="checkChildName()">
-
-                confirmar ♡
-
-            </button>
-
-
-            <div
-                class="login-error"
-                id="childError">
-            </div>
-
+        <div class="eyebrow">
+            antes de entrar...
         </div>
 
+        <h1>
+            Um lugar só nosso.
+        </h1>
 
-        <p class="login-note">
-            algumas coisas merecem uma pequena proteção. ✨
+        <p>
+            Se você chegou até aqui,
+            provavelmente deveria conhecer
+            a senha. 🤭
         </p>
+
+        <label
+            class="login-label"
+            for="password">
+
+            Senha
+
+        </label>
+
+        <input
+            class="login-input"
+            id="password"
+            type="password"
+            placeholder="digite a senha"
+            autocomplete="off"
+        >
+
+        <button
+            class="login-btn"
+            type="button"
+            onclick="checkPassword()">
+
+            entrar ♡
+
+        </button>
+
+        <div
+            class="login-error"
+            id="passwordError">
+        </div>
 
     </div>
 
@@ -1726,7 +1674,6 @@ p {
         ♫ música
 
     </button>
-
 
     <audio
         id="audio"
@@ -2109,14 +2056,12 @@ p {
         Você lembra desse dia?
     </h2>
 
-
     <img
         class="photo hero-photo"
         src="./fotos/foto1.png"
         alt="Uma lembrança nossa"
         onerror="fotoErro(this)"
     >
-
 
     <div
         class="card center"
@@ -2196,17 +2141,14 @@ p {
         Cada um guarda uma coisa que eu amo em você.
     </p>
 
-
     <div
         class="game"
         id="game">
     </div>
 
-
     <div id="gameText">
         Você encontrou 0 de 6 ♡
     </div>
-
 
     <button
         class="btn"
@@ -2303,9 +2245,7 @@ p {
         Eu gosto de guardar você.
     </h2>
 
-
     <div class="gallery">
-
 
         <figure>
 
@@ -2366,7 +2306,6 @@ p {
 
         </figure>
 
-
     </div>
 
 
@@ -2416,7 +2355,6 @@ p {
         Você e eu acordando
         uma do lado da outra.
     </p>
-
 
     <div class="future-list">
 
@@ -2670,36 +2608,10 @@ p {
 
 
 /* =====================================================
-   CONFIGURAÇÃO DA PROTEÇÃO
+   SENHA DO SITE
 ===================================================== */
-
-/*
-   SENHA:
-   feijão
-
-   NOME DO FILHO:
-   TROQUE "Julia" PELO NOME CORRETO.
-*/
 
 const SITE_PASSWORD = "feijão";
-
-const CHILD_NAME = "feijão";
-
-
-/* =====================================================
-   FUNÇÃO PARA NORMALIZAR TEXTO
-   Permite que "JULIA", "Julia" etc. funcionem.
-===================================================== */
-
-function normalizeText(text) {
-
-    return text
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
-}
 
 
 /* =====================================================
@@ -2709,44 +2621,40 @@ function normalizeText(text) {
 function checkPassword() {
 
     const input =
-        document.getElementById("passwordInput");
+        document.getElementById("password");
 
     const error =
         document.getElementById("passwordError");
 
-    const answer =
-        normalizeText(input.value);
+    const password =
+        input.value.trim();
 
-    const correctPassword =
-        normalizeText(SITE_PASSWORD);
-
-
-    if (answer === correctPassword) {
+    if (password === SITE_PASSWORD) {
 
         error.innerText = "";
 
         const login =
-            document.getElementById("passwordScreen");
+            document.getElementById("loginScreen");
 
         login.style.opacity = "0";
 
         login.style.pointerEvents = "none";
 
-        setTimeout(() => {
+        setTimeout(function() {
 
             login.style.display = "none";
 
             document.body.style.overflowX =
                 "hidden";
 
-        }, 600);
+            updateNavigation();
 
-        updateNavigation();
+        }, 600);
 
     } else {
 
         error.innerText =
-            "Hmm... acho que você não deveria estar aqui. 🤨";
+            "Hmm... essa não é a senha. Tenta de novo. 🤭";
 
         input.value = "";
 
@@ -2755,6 +2663,27 @@ function checkPassword() {
     }
 
 }
+
+
+/* =====================================================
+   ENTER TAMBÉM ENVIA A SENHA
+===================================================== */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                checkPassword();
+
+            }
+
+        }
+    );
+
 
 /* =====================================================
    ESTRELAS
@@ -2989,14 +2918,14 @@ function toggleMusic() {
 
         audio.play()
 
-            .then(() => {
+            .then(function() {
 
                 musicBtn.innerText =
                     "♫ tocando";
 
             })
 
-            .catch((erro) => {
+            .catch(function(erro) {
 
                 console.error(
                     "Erro ao tocar música:",
@@ -3025,7 +2954,7 @@ function toggleMusic() {
 
 
 /* =====================================================
-   JOGO
+   JOGO DOS 6 CORAÇÕES
 ===================================================== */
 
 let gameStarted =
@@ -3114,7 +3043,7 @@ function startGame() {
 
 
         heart.onclick =
-            function () {
+            function() {
 
                 if (
                     heart.dataset.found
@@ -3267,74 +3196,81 @@ function startHearts() {
 
 
     const timer =
-        setInterval(() => {
+        setInterval(
+            function() {
 
-            const heart =
-                document.createElement(
-                    "div"
+                const heart =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                heart.className =
+                    "fheart";
+
+
+                heart.innerText =
+                    emojis[
+                        Math.floor(
+                            Math.random() *
+                            emojis.length
+                        )
+                    ];
+
+
+                heart.style.left =
+                    Math.random() * 100 +
+                    "%";
+
+
+                heart.style.fontSize =
+                    (
+                        18 +
+                        Math.random() * 18
+                    ) +
+                    "px";
+
+
+                heart.style.animationDuration =
+                    (
+                        4 +
+                        Math.random() * 4
+                    ) +
+                    "s";
+
+
+                box.appendChild(
+                    heart
                 );
 
 
-            heart.className =
-                "fheart";
+                setTimeout(
+                    function() {
 
+                        heart.remove();
 
-            heart.innerText =
-                emojis[
-                    Math.floor(
-                        Math.random() *
-                        emojis.length
-                    )
-                ];
-
-
-            heart.style.left =
-                Math.random() * 100 +
-                "%";
-
-
-            heart.style.fontSize =
-                (
-                    18 +
-                    Math.random() * 18
-                ) +
-                "px";
-
-
-            heart.style.animationDuration =
-                (
-                    4 +
-                    Math.random() * 4
-                ) +
-                "s";
-
-
-            box.appendChild(
-                heart
-            );
-
-
-            setTimeout(() => {
-
-                heart.remove();
-
-            }, 8500);
-
-
-            count++;
-
-
-            if (count > 45) {
-
-                clearInterval(
-                    timer
+                    },
+                    8500
                 );
 
-            }
 
-        }, 350);
+                count++;
+
+
+                if (count > 45) {
+
+                    clearInterval(
+                        timer
+                    );
+
+                }
+
+            },
+            350
+        );
 
 }
+
 
 </script>
 
