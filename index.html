@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,11 +6,9 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Para Julia da Luz ✨</title>
-
 
 <style>
 
@@ -26,7 +25,6 @@ html {
 }
 
 body {
-
     margin: 0;
 
     background:
@@ -46,15 +44,18 @@ body {
 
     color: #fff8fc;
 
-    font-family: "DM Sans", sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     overflow-x: hidden;
 
     min-width: 0;
 }
 
-
-button {
+button,
+input {
     font-family: inherit;
 }
 
@@ -64,25 +65,20 @@ button {
 ===================================================== */
 
 #sky {
-
     position: fixed;
-
     inset: 0;
 
     pointer-events: none;
 
-    z-index: -1;
+    z-index: 0;
 
     overflow: hidden;
 }
 
-
 .star {
-
     position: absolute;
 
     width: 2px;
-
     height: 2px;
 
     border-radius: 50%;
@@ -99,16 +95,277 @@ button {
         alternate;
 }
 
-
 @keyframes twinkle {
 
     to {
-
         opacity: 1;
-
         transform: scale(1.6);
-
     }
+
+}
+
+
+/* =====================================================
+   PROTEÇÃO / TELA DE SENHA
+===================================================== */
+
+#loginScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(125, 85, 160, .25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(210, 100, 150, .20),
+            transparent 35%
+        ),
+
+        #080611;
+
+    overflow-y: auto;
+
+}
+
+.login-box {
+
+    width: min(450px, 100%);
+
+    padding: 35px 28px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.075);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0
+        20px
+        80px
+        rgba(0,0,0,.35);
+
+}
+
+.login-heart {
+
+    font-size: 65px;
+
+    margin-bottom: 15px;
+
+    animation:
+        pulse
+        2.2s
+        infinite;
+}
+
+.login-box h1 {
+
+    margin:
+        0
+        0
+        15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(38px, 10vw, 55px);
+
+    line-height: 1;
+
+}
+
+.login-box p {
+
+    color: #d9cdd8;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin:
+        0
+        0
+        22px;
+
+}
+
+.login-label {
+
+    display: block;
+
+    text-align: left;
+
+    color: #e8dce5;
+
+    font-size: 13px;
+
+    margin:
+        18px
+        0
+        8px;
+
+}
+
+.login-input {
+
+    width: 100%;
+
+    padding:
+        15px
+        17px;
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.15);
+
+    border-radius: 16px;
+
+    background:
+        rgba(0,0,0,.22);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 16px;
+
+    transition: .25s;
+
+}
+
+.login-input:focus {
+
+    border-color:
+        rgba(244,161,195,.7);
+
+    box-shadow:
+        0
+        0
+        25px
+        rgba(244,161,195,.10);
+
+}
+
+.login-input::placeholder {
+
+    color:
+        rgba(255,255,255,.4);
+
+}
+
+.login-btn {
+
+    width: 100%;
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4a1c3,
+            #c49ade
+        );
+
+    color: #170b18;
+
+    padding:
+        15px
+        20px;
+
+    border-radius: 999px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-top: 22px;
+
+    transition: .25s;
+
+}
+
+.login-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+.login-error {
+
+    min-height: 24px;
+
+    margin-top: 15px;
+
+    color:
+        #ffb6d2;
+
+    font-size: 14px;
+
+}
+
+.login-step {
+
+    display: none;
+
+}
+
+.login-step.active {
+
+    display: block;
+
+    animation:
+        appear
+        .5s
+        ease
+        both;
+
+}
+
+.login-note {
+
+    margin-top: 20px !important;
+
+    font-size: 12px !important;
+
+    color:
+        #aaa0ac !important;
 
 }
 
@@ -116,6 +373,14 @@ button {
 /* =====================================================
    TELAS
 ===================================================== */
+
+#siteContent {
+
+    position: relative;
+
+    z-index: 1;
+
+}
 
 .screen {
 
@@ -137,8 +402,8 @@ button {
     width: 100%;
 
     overflow-x: hidden;
-}
 
+}
 
 .screen.active {
 
@@ -149,27 +414,21 @@ button {
         .8s
         ease
         both;
-}
 
+}
 
 @keyframes appear {
 
     from {
-
         opacity: 0;
-
         transform:
             translateY(25px);
-
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateY(0);
-
     }
 
 }
@@ -181,13 +440,14 @@ button {
 
 .content {
 
-    width: min(760px, 100%);
+    width:
+        min(760px, 100%);
 
     text-align: center;
 
     margin: auto;
-}
 
+}
 
 .eyebrow {
 
@@ -203,19 +463,18 @@ button {
 
 }
 
-
 h1,
 h2,
 h3 {
 
     font-family:
-        "Cormorant Garamond",
+        Georgia,
+        "Times New Roman",
         serif;
 
     font-weight: 600;
 
 }
-
 
 h1 {
 
@@ -232,8 +491,8 @@ h1 {
         0
         0
         25px;
-}
 
+}
 
 h2 {
 
@@ -250,8 +509,8 @@ h2 {
         0
         0
         28px;
-}
 
+}
 
 p {
 
@@ -265,25 +524,26 @@ p {
         0
         0
         20px;
-}
 
+}
 
 .lead {
 
     font-size: 20px;
-}
 
+}
 
 .pink {
 
     color: #ffd0e2;
-}
 
+}
 
 .script {
 
     font-family:
-        "Cormorant Garamond",
+        Georgia,
+        "Times New Roman",
         serif;
 
     font-size:
@@ -296,6 +556,7 @@ p {
     line-height: 1.25;
 
     color: white;
+
 }
 
 
@@ -340,8 +601,8 @@ p {
         rgba(244,161,195,.18);
 
     max-width: 100%;
-}
 
+}
 
 .btn:hover {
 
@@ -350,13 +611,13 @@ p {
 
 }
 
-
 .btn.secondary {
 
     background:
         rgba(255,255,255,.07);
 
     color: white;
+
 }
 
 
@@ -372,7 +633,8 @@ p {
 
     bottom:
         calc(
-            18px + env(safe-area-inset-bottom)
+            18px +
+            env(safe-area-inset-bottom)
         );
 
     z-index: 80;
@@ -395,9 +657,11 @@ p {
 
     cursor: pointer;
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter:
+        blur(12px);
 
     box-shadow:
         0
@@ -410,8 +674,8 @@ p {
     transition: .25s;
 
     font-size: 14px;
-}
 
+}
 
 #backBtn:hover {
 
@@ -420,11 +684,12 @@ p {
 
     background:
         rgba(255,255,255,.12);
+
 }
 
 
 /* =====================================================
-   CORAÇÃO INICIAL
+   CORAÇÃO
 ===================================================== */
 
 .hero-heart {
@@ -464,8 +729,8 @@ p {
         pulse
         2.2s
         infinite;
-}
 
+}
 
 @keyframes pulse {
 
@@ -520,12 +785,13 @@ p {
         infinite;
 
     font-family:
-        "Cormorant Garamond",
+        Georgia,
+        "Times New Roman",
         serif;
 
     font-size: 25px;
-}
 
+}
 
 @keyframes breathe {
 
@@ -580,7 +846,6 @@ p {
 
 }
 
-
 .card.center {
 
     text-align: center;
@@ -601,8 +866,8 @@ p {
     margin:
         28px
         0;
-}
 
+}
 
 .event {
 
@@ -627,20 +892,21 @@ p {
         rgba(255,255,255,.08);
 
     text-align: left;
-}
 
+}
 
 .date {
 
     font-family:
-        "Cormorant Garamond",
+        Georgia,
+        "Times New Roman",
         serif;
 
     font-size: 24px;
 
     color: #ffd0e2;
-}
 
+}
 
 .event h3 {
 
@@ -650,8 +916,8 @@ p {
         0
         0
         7px;
-}
 
+}
 
 .event p {
 
@@ -686,14 +952,12 @@ p {
 
 }
 
-
 .hero-photo {
 
     aspect-ratio:
         16 / 10;
 
 }
-
 
 .gallery {
 
@@ -705,15 +969,14 @@ p {
     gap: 12px;
 
     margin-top: 24px;
-}
 
+}
 
 .gallery figure {
 
     margin: 0;
 
 }
-
 
 .gallery img {
 
@@ -723,14 +986,12 @@ p {
 
 }
 
-
 .gallery figure:first-child {
 
     grid-column:
         1 / -1;
 
 }
-
 
 .gallery figure:first-child img {
 
@@ -764,8 +1025,8 @@ p {
     margin:
         25px
         0;
-}
 
+}
 
 .gheart {
 
@@ -785,8 +1046,8 @@ p {
         alternate;
 
     transition: .2s;
-}
 
+}
 
 .gheart:hover {
 
@@ -794,7 +1055,6 @@ p {
         scale(1.2);
 
 }
-
 
 @keyframes drift {
 
@@ -806,7 +1066,6 @@ p {
     }
 
 }
-
 
 #gameText {
 
@@ -842,8 +1101,8 @@ p {
         alternate;
 
     margin-bottom: 18px;
-}
 
+}
 
 @keyframes glow {
 
@@ -878,8 +1137,8 @@ p {
     margin:
         28px
         0;
-}
 
+}
 
 .future {
 
@@ -898,6 +1157,7 @@ p {
     font-size: 15px;
 
     color: #e8dce5;
+
 }
 
 
@@ -910,16 +1170,16 @@ p {
     font-size: 65px;
 
     margin-bottom: 20px;
-}
 
+}
 
 .secret {
 
     display: none;
 
     margin-top: 25px;
-}
 
+}
 
 .secret.show {
 
@@ -930,6 +1190,7 @@ p {
         .7s
         ease
         both;
+
 }
 
 
@@ -949,8 +1210,8 @@ p {
     margin:
         30px
         auto;
-}
 
+}
 
 .note {
 
@@ -959,6 +1220,7 @@ p {
     color: #aaa0ac;
 
     margin-top: 15px;
+
 }
 
 
@@ -974,14 +1236,15 @@ p {
 
     top:
         calc(
-            16px + env(safe-area-inset-top)
+            16px +
+            env(safe-area-inset-top)
         );
 
     z-index: 50;
 
     display: none;
-}
 
+}
 
 .music button {
 
@@ -1008,6 +1271,27 @@ p {
 
     -webkit-backdrop-filter:
         blur(10px);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+}
+
+.music button:hover {
+
+    background:
+        rgba(255,255,255,.12);
+
+    transform:
+        translateY(-2px);
+
+}
+
+.music audio {
+
+    display: none !important;
+
 }
 
 
@@ -1024,8 +1308,8 @@ p {
     pointer-events: none;
 
     z-index: 100;
-}
 
+}
 
 .fheart {
 
@@ -1040,8 +1324,8 @@ p {
         5s
         linear
         forwards;
-}
 
+}
 
 @keyframes rise {
 
@@ -1070,8 +1354,8 @@ p {
             45px
             16px
             105px;
-    }
 
+    }
 
     h1 {
 
@@ -1081,8 +1365,8 @@ p {
                 15vw,
                 75px
             );
-    }
 
+    }
 
     h2 {
 
@@ -1092,30 +1376,30 @@ p {
                 12vw,
                 55px
             );
-    }
 
+    }
 
     p {
 
         font-size: 16px;
 
         line-height: 1.75;
-    }
 
+    }
 
     .lead {
 
         font-size: 18px;
-    }
 
+    }
 
     .card {
 
         padding: 23px;
 
         border-radius: 23px;
-    }
 
+    }
 
     .event {
 
@@ -1126,60 +1410,60 @@ p {
         gap: 12px;
 
         padding: 16px;
-    }
 
+    }
 
     .date {
 
         font-size: 20px;
-    }
 
+    }
 
     .event h3 {
 
         font-size: 22px;
-    }
 
+    }
 
     .gallery {
 
         grid-template-columns:
             1fr;
-    }
 
+    }
 
     .gallery figure:first-child {
 
         grid-column:
             auto;
-    }
 
+    }
 
     .gallery img,
     .gallery figure:first-child img {
 
         height: 250px;
-    }
 
+    }
 
     .future-list {
 
         grid-template-columns:
             1fr;
-    }
 
+    }
 
     .game {
 
         height: 330px;
-    }
 
+    }
 
     .music {
 
         right: 12px;
-    }
 
+    }
 
     .music button {
 
@@ -1188,8 +1472,8 @@ p {
             12px;
 
         font-size: 12px;
-    }
 
+    }
 
     #backBtn {
 
@@ -1197,8 +1481,7 @@ p {
 
         bottom:
             calc(
-                12px
-                +
+                12px +
                 env(safe-area-inset-bottom)
             );
 
@@ -1207,8 +1490,8 @@ p {
             14px;
 
         font-size: 13px;
-    }
 
+    }
 
     .btn {
 
@@ -1217,6 +1500,15 @@ p {
             20px;
 
         font-size: 14px;
+
+    }
+
+    .login-box {
+
+        padding:
+            30px
+            21px;
+
     }
 
 }
@@ -1233,8 +1525,8 @@ p {
         padding-left: 13px;
 
         padding-right: 13px;
-    }
 
+    }
 
     .hero-heart {
 
@@ -1243,8 +1535,8 @@ p {
         height: 80px;
 
         font-size: 38px;
-    }
 
+    }
 
     .breath {
 
@@ -1253,12 +1545,13 @@ p {
         height: 130px;
 
         font-size: 22px;
-    }
 
+    }
 
     .game {
 
         height: 300px;
+
     }
 
 }
@@ -1272,12 +1565,160 @@ p {
 
 
 <!-- =====================================================
-     ESTRELAS E CORAÇÕES
+     ESTRELAS
 ===================================================== -->
 
 <div id="sky"></div>
 
+
+<!-- =====================================================
+     CORAÇÕES FINAIS
+===================================================== -->
+
 <div id="hearts"></div>
+
+
+<!-- =====================================================
+     TELA DE LOGIN
+===================================================== -->
+
+<div id="loginScreen">
+
+    <div class="login-box">
+
+        <div class="login-heart">
+            ♡
+        </div>
+
+
+        <!-- PRIMEIRA ETAPA -->
+
+        <div
+            class="login-step active"
+            id="loginStep1">
+
+            <div class="eyebrow">
+                antes de entrar...
+            </div>
+
+            <h1>
+                Um lugar só nosso.
+            </h1>
+
+            <p>
+                Se você chegou até aqui,
+                provavelmente deveria conhecer
+                a senha. 🤭
+            </p>
+
+
+            <label
+                class="login-label"
+                for="password">
+
+                Senha
+
+            </label>
+
+
+            <input
+                class="login-input"
+                id="password"
+                type="password"
+                placeholder="digite a senha"
+                autocomplete="off"
+                onkeydown="if(event.key === 'Enter') checkPassword()"
+            >
+
+
+            <button
+                class="login-btn"
+                type="button"
+                onclick="checkPassword()">
+
+                entrar ♡
+
+            </button>
+
+
+            <div
+                class="login-error"
+                id="passwordError">
+            </div>
+
+        </div>
+
+
+        <!-- SEGUNDA ETAPA -->
+
+        <div
+            class="login-step"
+            id="loginStep2">
+
+            <div class="eyebrow">
+                só mais uma coisa...
+            </div>
+
+            <h1>
+                Uma perguntinha.
+            </h1>
+
+            <p>
+                Qual o nome do seu filho?
+            </p>
+
+
+            <label
+                class="login-label"
+                for="childName">
+
+                Resposta
+
+            </label>
+
+
+            <input
+                class="login-input"
+                id="childName"
+                type="text"
+                placeholder="digite o nome"
+                autocomplete="off"
+                onkeydown="if(event.key === 'Enter') checkChildName()"
+            >
+
+
+            <button
+                class="login-btn"
+                type="button"
+                onclick="checkChildName()">
+
+                confirmar ♡
+
+            </button>
+
+
+            <div
+                class="login-error"
+                id="childError">
+            </div>
+
+        </div>
+
+
+        <p class="login-note">
+            algumas coisas merecem uma pequena proteção. ✨
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CONTEÚDO DO SITE
+===================================================== -->
+
+<div id="siteContent">
 
 
 <!-- =====================================================
@@ -1290,33 +1731,35 @@ p {
 
     <button
         id="musicBtn"
+        type="button"
         onclick="toggleMusic()">
 
         ♫ música
 
     </button>
 
+
+    <audio
+        id="audio"
+        loop
+        preload="auto">
+
+        <source
+            src="./preciso-dizer-que-te-amo.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
 </div>
-
-
-<audio
-    id="audio"
-    loop>
-
-    <source
-        src="./musica/preciso-dizer-que-te-amo.mp3"
-        type="audio/mpeg">
-
-</audio>
 
 
 <!-- =====================================================
      BOTÃO VOLTAR
-     Ele aparece automaticamente da Tela 2 em diante.
 ===================================================== -->
 
 <button
     id="backBtn"
+    type="button"
     onclick="previous()">
 
     ← voltar
@@ -1357,6 +1800,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         fica comigo por alguns minutinhos ♡
@@ -1402,6 +1846,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         acho que precisava disso ♡
@@ -1489,6 +1934,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         agora vamos lembrar de nós ♡
@@ -1644,6 +2090,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         uma das minhas lembranças favoritas...
@@ -1726,6 +2173,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         agora você tem uma missão 🎮
@@ -1775,6 +2223,7 @@ p {
         class="btn"
         id="gameContinue"
         style="display:none"
+        type="button"
         onclick="next()">
 
         encontrei todos ♡
@@ -1835,6 +2284,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         tem mais uma coisa...
@@ -1874,6 +2324,7 @@ p {
                 src="./fotos/foto6.png"
                 class="photo"
                 alt="Uma lembrança nossa"
+                onerror="fotoErro(this)"
             >
 
         </figure>
@@ -1885,6 +2336,7 @@ p {
                 src="./fotos/foto2.png"
                 class="photo"
                 alt="Nós duas"
+                onerror="fotoErro(this)"
             >
 
         </figure>
@@ -1896,6 +2348,7 @@ p {
                 src="./fotos/foto3.png"
                 class="photo"
                 alt="Nós duas"
+                onerror="fotoErro(this)"
             >
 
         </figure>
@@ -1907,6 +2360,7 @@ p {
                 src="./fotos/foto4.png"
                 class="photo"
                 alt="Nós duas"
+                onerror="fotoErro(this)"
             >
 
         </figure>
@@ -1918,6 +2372,7 @@ p {
                 src="./fotos/foto5.png"
                 class="photo"
                 alt="Nós duas"
+                onerror="fotoErro(this)"
             >
 
         </figure>
@@ -1934,6 +2389,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         agora pensa no futuro comigo 🏡
@@ -2013,6 +2469,7 @@ p {
 
     <button
         class="btn"
+        type="button"
         onclick="next()">
 
         última coisa, prometo...
@@ -2054,6 +2511,7 @@ p {
     <button
         class="btn"
         id="unlock"
+        type="button"
         onclick="unlockSecret()">
 
         abrir meu coração
@@ -2125,6 +2583,7 @@ p {
 
         <button
             class="btn"
+            type="button"
             onclick="next()">
 
             agora sim. a última. ❤️
@@ -2199,6 +2658,7 @@ p {
 
     <button
         class="btn secondary"
+        type="button"
         onclick="startHearts(); this.innerText='eu também te amo ❤️'">
 
         ♡
@@ -2210,12 +2670,150 @@ p {
 </section>
 
 
+</div>
+
+
 <!-- =====================================================
      JAVASCRIPT
-     Continua dentro do próprio HTML.
 ===================================================== -->
 
 <script>
+
+
+/* =====================================================
+   CONFIGURAÇÃO DA PROTEÇÃO
+===================================================== */
+
+/*
+   SENHA:
+   feijão
+
+   NOME DO FILHO:
+   TROQUE "Julia" PELO NOME CORRETO.
+*/
+
+const SITE_PASSWORD = "feijão";
+
+const CHILD_NAME = "Julia";
+
+
+/* =====================================================
+   FUNÇÃO PARA NORMALIZAR TEXTO
+   Permite que "JULIA", "Julia" etc. funcionem.
+===================================================== */
+
+function normalizeText(text) {
+
+    return text
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* =====================================================
+   VERIFICA SENHA
+===================================================== */
+
+function checkPassword() {
+
+    const input =
+        document.getElementById("password");
+
+    const error =
+        document.getElementById("passwordError");
+
+    const password =
+        input.value;
+
+    if (password === SITE_PASSWORD) {
+
+        error.innerText = "";
+
+        document
+            .getElementById("loginStep1")
+            .classList.remove("active");
+
+        document
+            .getElementById("loginStep2")
+            .classList.add("active");
+
+        setTimeout(() => {
+
+            document
+                .getElementById("childName")
+                .focus();
+
+        }, 100);
+
+    } else {
+
+        error.innerText =
+            "Hmm... essa não é a senha. Tenta de novo. 🤭";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* =====================================================
+   VERIFICA NOME
+===================================================== */
+
+function checkChildName() {
+
+    const input =
+        document.getElementById("childName");
+
+    const error =
+        document.getElementById("childError");
+
+    const answer =
+        normalizeText(input.value);
+
+    const correctName =
+        normalizeText(CHILD_NAME);
+
+    if (answer === correctName) {
+
+        error.innerText = "";
+
+        const login =
+            document.getElementById("loginScreen");
+
+        login.style.opacity = "0";
+
+        login.style.pointerEvents = "none";
+
+        setTimeout(() => {
+
+            login.style.display = "none";
+
+            document.body.style.overflowX =
+                "hidden";
+
+        }, 600);
+
+        updateNavigation();
+
+    } else {
+
+        error.innerText =
+            "Não é esse nome... pensa direitinho. ❤️";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
 
 
 /* =====================================================
@@ -2277,8 +2875,6 @@ function updateNavigation() {
         document.getElementById("musicBox");
 
 
-    /* BOTÃO VOLTAR */
-
     if (current > 1) {
 
         backBtn.style.display =
@@ -2291,8 +2887,6 @@ function updateNavigation() {
 
     }
 
-
-    /* MÚSICA */
 
     if (current >= 2) {
 
@@ -2435,8 +3029,6 @@ function previous() {
 }
 
 
-/* Inicia a navegação corretamente */
-
 updateNavigation();
 
 
@@ -2446,7 +3038,6 @@ updateNavigation();
 
 const audio =
     document.getElementById("audio");
-
 
 const musicBtn =
     document.getElementById("musicBtn");
@@ -2675,20 +3266,16 @@ function unlockSecret() {
 function fotoErro(img) {
 
     img.alt =
-        "Foto não encontrada. Confira a pasta fotos no GitHub.";
-
+        "Foto não encontrada. Confira a pasta fotos.";
 
     img.style.minHeight =
         "180px";
 
-
     img.style.objectFit =
         "contain";
 
-
     img.style.padding =
         "30px";
-
 
     img.style.opacity =
         ".6";
@@ -2705,11 +3292,6 @@ let heartsStarted =
 
 
 function startHearts() {
-
-    /*
-       Evita que os corações sejam
-       criados várias vezes.
-    */
 
     if (heartsStarted) {
 
@@ -2814,10 +3396,9 @@ function startHearts() {
 
 }
 
-
 </script>
-
 
 </body>
 
 </html>
+```
