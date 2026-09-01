@@ -966,6 +966,10 @@ p {
    MÚSICA
 ===================================================== */
 
+/* =====================================================
+   MÚSICA
+===================================================== */
+
 .music {
     position: fixed;
     right: 16px;
@@ -973,7 +977,6 @@ p {
     z-index: 50;
     display: none;
 }
-
 
 .music button {
     border: 1px solid rgba(255,255,255,.15);
@@ -984,6 +987,22 @@ p {
     cursor: pointer;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.music button:hover {
+    background: rgba(255,255,255,.12);
+    transform: translateY(-2px);
+}
+
+.music audio {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 
@@ -1272,11 +1291,37 @@ p {
 
     </button>
 
+   <!-- =====================================================
+     MÚSICA
+===================================================== -->
+
+<div
+    class="music"
+    id="musicBox">
+
+    <button
+        id="musicBtn"
+        type="button"
+        onclick="toggleMusic()">
+
+        ♫ música
+
+    </button>
+
     <audio
         id="audio"
         loop
         preload="auto"
-        style="display:none !important;">
+        controls="false"
+        style="
+            display: none !important;
+            visibility: hidden !important;
+            width: 0 !important;
+            height: 0 !important;
+            position: absolute !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        ">
 
         <source
             src="./preciso-dizer-que-te-amo.mp3"
