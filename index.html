@@ -1,0 +1,2823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Para Julia da Luz ✨</title>
+
+
+<style>
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(125, 85, 160, .22),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(210, 100, 150, .16),
+            transparent 30%
+        ),
+
+        #080611;
+
+    color: #fff8fc;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+
+    min-width: 0;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+#sky {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    overflow: hidden;
+}
+
+
+.star {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: .6;
+
+    animation:
+        twinkle
+        3s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+@keyframes twinkle {
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.6);
+
+    }
+
+}
+
+
+/* =====================================================
+   TELAS
+===================================================== */
+
+.screen {
+
+    min-height: 100vh;
+
+    min-height: 100svh;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        50px
+        20px
+        110px;
+
+    width: 100%;
+
+    overflow-x: hidden;
+}
+
+
+.screen.active {
+
+    display: flex;
+
+    animation:
+        appear
+        .8s
+        ease
+        both;
+}
+
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.content {
+
+    width: min(760px, 100%);
+
+    text-align: center;
+
+    margin: auto;
+}
+
+
+.eyebrow {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #d9cdd8;
+
+    margin-bottom: 18px;
+
+}
+
+
+h1,
+h2,
+h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 600;
+
+}
+
+
+h1 {
+
+    font-size:
+        clamp(
+            55px,
+            12vw,
+            100px
+        );
+
+    line-height: .9;
+
+    margin:
+        0
+        0
+        25px;
+}
+
+
+h2 {
+
+    font-size:
+        clamp(
+            40px,
+            8vw,
+            67px
+        );
+
+    line-height: 1;
+
+    margin:
+        0
+        0
+        28px;
+}
+
+
+p {
+
+    color: #d9cdd8;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    margin:
+        0
+        0
+        20px;
+}
+
+
+.lead {
+
+    font-size: 20px;
+}
+
+
+.pink {
+
+    color: #ffd0e2;
+}
+
+
+.script {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            44px
+        );
+
+    line-height: 1.25;
+
+    color: white;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn {
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4a1c3,
+            #c49ade
+        );
+
+    color: #170b18;
+
+    padding:
+        14px
+        25px;
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-top: 12px;
+
+    transition: .25s;
+
+    box-shadow:
+        0
+        12px
+        40px
+        rgba(244,161,195,.18);
+
+    max-width: 100%;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.btn.secondary {
+
+    background:
+        rgba(255,255,255,.07);
+
+    color: white;
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+#backBtn {
+
+    position: fixed;
+
+    left: 18px;
+
+    bottom:
+        calc(
+            18px + env(safe-area-inset-bottom)
+        );
+
+    z-index: 80;
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(10,7,18,.82);
+
+    color: white;
+
+    padding:
+        11px
+        17px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0
+        8px
+        30px
+        rgba(0,0,0,.25);
+
+    display: none;
+
+    transition: .25s;
+
+    font-size: 14px;
+}
+
+
+#backBtn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   CORAÇÃO INICIAL
+===================================================== */
+
+.hero-heart {
+
+    width: 95px;
+
+    height: 95px;
+
+    margin:
+        0
+        auto
+        30px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        rgba(245,166,197,.08);
+
+    border:
+        1px
+        solid
+        rgba(245,166,197,.25);
+
+    box-shadow:
+        0
+        0
+        55px
+        rgba(245,166,197,.15);
+
+    font-size: 46px;
+
+    animation:
+        pulse
+        2.2s
+        infinite;
+}
+
+
+@keyframes pulse {
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        box-shadow:
+            0
+            0
+            75px
+            rgba(245,166,197,.25);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPIRAÇÃO
+===================================================== */
+
+.breath {
+
+    width: 155px;
+
+    height: 155px;
+
+    border-radius: 50%;
+
+    margin:
+        35px
+        auto;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px
+        solid
+        rgba(245,166,197,.35);
+
+    background:
+        rgba(245,166,197,.08);
+
+    animation:
+        breathe
+        6s
+        ease-in-out
+        infinite;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+}
+
+
+@keyframes breathe {
+
+    0%, 100% {
+
+        transform:
+            scale(.78);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+
+    }
+
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+
+    background:
+        rgba(255,255,255,.075);
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.13);
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    text-align: left;
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0
+        18px
+        70px
+        rgba(0,0,0,.18);
+
+}
+
+
+.card.center {
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline {
+
+    display: grid;
+
+    gap: 14px;
+
+    margin:
+        28px
+        0;
+}
+
+
+.event {
+
+    display: grid;
+
+    grid-template-columns:
+        75px
+        1fr;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.08);
+
+    text-align: left;
+}
+
+
+.date {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    color: #ffd0e2;
+}
+
+
+.event h3 {
+
+    font-size: 25px;
+
+    margin:
+        0
+        0
+        7px;
+}
+
+
+.event p {
+
+    font-size: 15px;
+
+    margin: 0;
+
+}
+
+
+/* =====================================================
+   FOTOS
+===================================================== */
+
+.photo {
+
+    width: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.12);
+
+    background:
+        #120d20;
+
+}
+
+
+.hero-photo {
+
+    aspect-ratio:
+        16 / 10;
+
+}
+
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+
+.gallery figure {
+
+    margin: 0;
+
+}
+
+
+.gallery img {
+
+    height: 260px;
+
+    object-fit: cover;
+
+}
+
+
+.gallery figure:first-child {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.gallery figure:first-child img {
+
+    height: 360px;
+
+}
+
+
+/* =====================================================
+   JOGO
+===================================================== */
+
+.game {
+
+    height: 370px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 26px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.09);
+
+    margin:
+        25px
+        0;
+}
+
+
+.gheart {
+
+    position: absolute;
+
+    font-size: 34px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    animation:
+        drift
+        2.5s
+        ease-in-out
+        infinite
+        alternate;
+
+    transition: .2s;
+}
+
+
+.gheart:hover {
+
+    transform:
+        scale(1.2);
+
+}
+
+
+@keyframes drift {
+
+    to {
+
+        transform:
+            translateY(-12px);
+
+    }
+
+}
+
+
+#gameText {
+
+    min-height: 60px;
+
+    color: #ffd0e2;
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   LÂMPADA
+===================================================== */
+
+.lamp {
+
+    font-size: 86px;
+
+    filter:
+        drop-shadow(
+            0
+            0
+            25px
+            rgba(255,214,137,.45)
+        );
+
+    animation:
+        glow
+        2s
+        infinite
+        alternate;
+
+    margin-bottom: 18px;
+}
+
+
+@keyframes glow {
+
+    to {
+
+        filter:
+            drop-shadow(
+                0
+                0
+                55px
+                rgba(255,214,137,.95)
+            );
+
+    }
+
+}
+
+
+/* =====================================================
+   FUTURO
+===================================================== */
+
+.future-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin:
+        28px
+        0;
+}
+
+
+.future {
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.08);
+
+    font-size: 15px;
+
+    color: #e8dce5;
+}
+
+
+/* =====================================================
+   SEGREDO
+===================================================== */
+
+.lock {
+
+    font-size: 65px;
+
+    margin-bottom: 20px;
+}
+
+
+.secret {
+
+    display: none;
+
+    margin-top: 25px;
+}
+
+
+.secret.show {
+
+    display: block;
+
+    animation:
+        appear
+        .7s
+        ease
+        both;
+}
+
+
+/* =====================================================
+   DIVISOR
+===================================================== */
+
+.divider {
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.2);
+
+    margin:
+        30px
+        auto;
+}
+
+
+.note {
+
+    font-size: 13px;
+
+    color: #aaa0ac;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+.music {
+
+    position: fixed;
+
+    right: 16px;
+
+    top:
+        calc(
+            16px + env(safe-area-inset-top)
+        );
+
+    z-index: 50;
+
+    display: none;
+}
+
+
+.music button {
+
+    border:
+        1px
+        solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(10,7,18,.75);
+
+    color: white;
+
+    padding:
+        10px
+        14px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+}
+
+
+/* =====================================================
+   CORAÇÕES FINAIS
+===================================================== */
+
+#hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+.fheart {
+
+    position: absolute;
+
+    bottom: -40px;
+
+    font-size: 24px;
+
+    animation:
+        rise
+        5s
+        linear
+        forwards;
+}
+
+
+@keyframes rise {
+
+    to {
+
+        transform:
+            translateY(-115vh)
+            rotate(35deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 560px) {
+
+    .screen {
+
+        padding:
+            45px
+            16px
+            105px;
+    }
+
+
+    h1 {
+
+        font-size:
+            clamp(
+                48px,
+                15vw,
+                75px
+            );
+    }
+
+
+    h2 {
+
+        font-size:
+            clamp(
+                38px,
+                12vw,
+                55px
+            );
+    }
+
+
+    p {
+
+        font-size: 16px;
+
+        line-height: 1.75;
+    }
+
+
+    .lead {
+
+        font-size: 18px;
+    }
+
+
+    .card {
+
+        padding: 23px;
+
+        border-radius: 23px;
+    }
+
+
+    .event {
+
+        grid-template-columns:
+            58px
+            1fr;
+
+        gap: 12px;
+
+        padding: 16px;
+    }
+
+
+    .date {
+
+        font-size: 20px;
+    }
+
+
+    .event h3 {
+
+        font-size: 22px;
+    }
+
+
+    .gallery {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .gallery figure:first-child {
+
+        grid-column:
+            auto;
+    }
+
+
+    .gallery img,
+    .gallery figure:first-child img {
+
+        height: 250px;
+    }
+
+
+    .future-list {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .game {
+
+        height: 330px;
+    }
+
+
+    .music {
+
+        right: 12px;
+    }
+
+
+    .music button {
+
+        padding:
+            9px
+            12px;
+
+        font-size: 12px;
+    }
+
+
+    #backBtn {
+
+        left: 12px;
+
+        bottom:
+            calc(
+                12px
+                +
+                env(safe-area-inset-bottom)
+            );
+
+        padding:
+            10px
+            14px;
+
+        font-size: 13px;
+    }
+
+
+    .btn {
+
+        padding:
+            13px
+            20px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES MUITO PEQUENOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .screen {
+
+        padding-left: 13px;
+
+        padding-right: 13px;
+    }
+
+
+    .hero-heart {
+
+        width: 80px;
+
+        height: 80px;
+
+        font-size: 38px;
+    }
+
+
+    .breath {
+
+        width: 130px;
+
+        height: 130px;
+
+        font-size: 22px;
+    }
+
+
+    .game {
+
+        height: 300px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ESTRELAS E CORAÇÕES
+===================================================== -->
+
+<div id="sky"></div>
+
+<div id="hearts"></div>
+
+
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
+
+<div
+    class="music"
+    id="musicBox">
+
+    <button
+        id="musicBtn"
+        onclick="toggleMusic()">
+
+        ♫ música
+
+    </button>
+
+</div>
+
+
+<audio
+    id="audio"
+    loop>
+
+    <source
+        src="./musica/preciso-dizer-que-te-amo.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- =====================================================
+     BOTÃO VOLTAR
+     Ele aparece automaticamente da Tela 2 em diante.
+===================================================== -->
+
+<button
+    id="backBtn"
+    onclick="previous()">
+
+    ← voltar
+
+</button>
+
+
+<!-- =====================================================
+     TELA 1
+===================================================== -->
+
+<section
+    class="screen active"
+    id="s1">
+
+<div class="content">
+
+    <div class="hero-heart">
+        ♡
+    </div>
+
+    <div class="eyebrow">
+        um pequeno lugar feito para você
+    </div>
+
+    <h1>
+        Oi, meu benzinho.
+    </h1>
+
+    <p class="lead">
+        Eu sei que hoje não foi um dia muito gentil com você.
+    </p>
+
+    <p>
+        Então fiz uma coisinha para te lembrar
+        de uma coisa importante.
+    </p>
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        fica comigo por alguns minutinhos ♡
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 2
+===================================================== -->
+
+<section
+    class="screen"
+    id="s2">
+
+<div class="content">
+
+    <div class="eyebrow">
+        antes de qualquer coisa
+    </div>
+
+    <h2>
+        Respira comigo.
+    </h2>
+
+    <div class="breath">
+        respira
+    </div>
+
+    <p>
+        Inspira devagar.<br>
+        Solta o ar.<br>
+        Deixa o dia ficar um pouquinho para trás.
+    </p>
+
+    <p class="pink">
+        Você não precisa resolver tudo agora.
+    </p>
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        acho que precisava disso ♡
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 3
+===================================================== -->
+
+<section
+    class="screen"
+    id="s3">
+
+<div class="content">
+
+    <div class="eyebrow">
+        uma carta para você
+    </div>
+
+    <h2>
+        Eu queria que você soubesse...
+    </h2>
+
+    <div class="card">
+
+        <p>
+            Eu sei que hoje você trabalhou muito.
+            Sei que seu corpo está cansado e que
+            sua cabeça também deve estar pedindo
+            um descanso.
+        </p>
+
+        <p>
+            E eu queria poder estar aí agora.
+            Queria te abraçar, fazer carinho em você
+            e deixar o mundo quietinho por alguns minutos.
+        </p>
+
+        <p>
+            Mas, como eu não posso fazer isso agora,
+            eu queria pelo menos te lembrar:
+        </p>
+
+        <p class="script">
+            você não está sozinha.
+        </p>
+
+        <p>
+            Um dia ruim não define você.
+            Estar exausta hoje não diminui nada
+            do que você é.
+        </p>
+
+        <p>
+            Você pode descansar.
+            Pode ficar cansada.
+            Pode não estar bem.
+        </p>
+
+        <p>
+            E ainda assim continua sendo
+            a pessoa que eu amo.
+        </p>
+
+        <p>
+            Eu amo seus olhos, sua risada gostosa,
+            seu cheiro e aquela boquinha rosada
+            que faz um coraçãozinho quando você
+            fica com a expressão neutra.
+        </p>
+
+        <p class="pink">
+            Então descansa, meu amor.
+            Amanhã é outro dia.
+            E eu continuo aqui. ❤️
+        </p>
+
+    </div>
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        agora vamos lembrar de nós ♡
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 4
+===================================================== -->
+
+<section
+    class="screen"
+    id="s4">
+
+<div class="content">
+
+    <div class="eyebrow">
+        a nossa história
+    </div>
+
+    <h2>
+        Olha só onde a gente chegou.
+    </h2>
+
+    <div class="timeline">
+
+        <div class="event">
+
+            <div class="date">
+                abr/24
+            </div>
+
+            <div>
+
+                <h3>
+                    O começo
+                </h3>
+
+                <p>
+                    A gente se conheceu.
+                    Foram dois meses,
+                    não deu certo,
+                    e cada uma seguiu
+                    seu caminho.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="date">
+                dez/24
+            </div>
+
+            <div>
+
+                <h3>
+                    A primeira volta
+                </h3>
+
+                <p>
+                    Em dezembro,
+                    voltamos uma para a vida
+                    da outra e começamos
+                    a namorar.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="date">
+                jun/25
+            </div>
+
+            <div>
+
+                <h3>
+                    O intervalo
+                </h3>
+
+                <p>
+                    A vida nos separou outra vez.
+                    O tempo passou e cada uma
+                    continuou vivendo.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="date">
+                mai/26
+            </div>
+
+            <div>
+
+                <h3>
+                    O reencontro
+                </h3>
+
+                <p>
+                    No final de maio,
+                    voltamos a conversar.
+                    E dessa vez,
+                    não deixamos o contato
+                    se perder.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="date">
+                hoje
+            </div>
+
+            <div>
+
+                <h3>
+                    E aqui estamos nós.
+                </h3>
+
+                <p>
+                    Talvez o destino tenha insistido
+                    porque ainda tinha uma história
+                    para contar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        uma das minhas lembranças favoritas...
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 5
+===================================================== -->
+
+<section
+    class="screen"
+    id="s5">
+
+<div class="content">
+
+    <div class="eyebrow">
+        uma memória que mora em mim
+    </div>
+
+    <h2>
+        Você lembra desse dia?
+    </h2>
+
+
+    <img
+        class="photo hero-photo"
+        src="./fotos/foto1.png"
+        alt="Uma lembrança nossa"
+        onerror="fotoErro(this)"
+    >
+
+
+    <div
+        class="card center"
+        style="margin-top:18px">
+
+        <p>
+            Nós duas na sua casa.
+        </p>
+
+        <p>
+            Assistindo
+            <i>Girls Like Girls</i>
+            no computador.
+        </p>
+
+        <p>
+            Rindo pra caramba.
+            Comendo sushi.
+        </p>
+
+        <p>
+            Eu jogando The Sims com você.
+        </p>
+
+        <p>
+            E depois nós duas brincando
+            de fazer sombra com o projetor,
+            com aquela lua e o céu estrelado
+            no seu quarto.
+        </p>
+
+        <p class="script">
+            Eu lembro de como a gente riu.
+        </p>
+
+        <p>
+            E acho que são esses momentos simples
+            que eu mais amo na nossa história.
+        </p>
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        agora você tem uma missão 🎮
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 6
+===================================================== -->
+
+<section
+    class="screen"
+    id="s6">
+
+<div class="content">
+
+    <div class="eyebrow">
+        missão do benzinho
+    </div>
+
+    <h2>
+        Encontre os 6 corações.
+    </h2>
+
+    <p>
+        Cada um guarda uma coisa que eu amo em você.
+    </p>
+
+
+    <div
+        class="game"
+        id="game">
+    </div>
+
+
+    <div id="gameText">
+        Você encontrou 0 de 6 ♡
+    </div>
+
+
+    <button
+        class="btn"
+        id="gameContinue"
+        style="display:none"
+        onclick="next()">
+
+        encontrei todos ♡
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 7
+===================================================== -->
+
+<section
+    class="screen"
+    id="s7">
+
+<div class="content">
+
+    <div class="lamp">
+        ☀️
+    </div>
+
+    <div class="eyebrow">
+        agora eu entendi
+    </div>
+
+    <h2>
+        Julia da Luz...
+    </h2>
+
+    <p class="lead">
+        Acho que finalmente entendi
+        o seu sobrenome.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="script">
+        Você chegou na minha vida
+        e acendeu uma parte de mim
+        que eu nem sabia que estava apagada.
+    </p>
+
+    <p>
+        Só tem um problema...
+    </p>
+
+    <p class="script pink">
+        Eu me acostumei com a sua luz.
+    </p>
+
+    <p>
+        Então trate de ficar por perto. 😌❤️
+    </p>
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        tem mais uma coisa...
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 8
+===================================================== -->
+
+<section
+    class="screen"
+    id="s8">
+
+<div class="content">
+
+    <div class="eyebrow">
+        alguns pedacinhos de nós
+    </div>
+
+    <h2>
+        Eu gosto de guardar você.
+    </h2>
+
+
+    <div class="gallery">
+
+
+        <figure>
+
+            <img
+                src="./fotos/foto6.png"
+                class="photo"
+                alt="Uma lembrança nossa"
+            >
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="./fotos/foto2.png"
+                class="photo"
+                alt="Nós duas"
+            >
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="./fotos/foto3.png"
+                class="photo"
+                alt="Nós duas"
+            >
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="./fotos/foto4.png"
+                class="photo"
+                alt="Nós duas"
+            >
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="./fotos/foto5.png"
+                class="photo"
+                alt="Nós duas"
+            >
+
+        </figure>
+
+
+    </div>
+
+
+    <p class="note">
+        Algumas fotos.
+        Milhões de sentimentos.
+    </p>
+
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        agora pensa no futuro comigo 🏡
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 9
+===================================================== -->
+
+<section
+    class="screen"
+    id="s9">
+
+<div class="content">
+
+    <div class="eyebrow">
+        um dia...
+    </div>
+
+    <h2>
+        Eu ainda quero isso.
+    </h2>
+
+    <p class="script">
+        Nossa própria casinha.
+    </p>
+
+    <p>
+        Você e eu acordando
+        uma do lado da outra.
+    </p>
+
+
+    <div class="future-list">
+
+        <div class="future">
+            ☕ Café juntas de manhã
+        </div>
+
+        <div class="future">
+            🛋️ Domingo preguiçoso
+        </div>
+
+        <div class="future">
+            🍝 Jantar improvisado
+        </div>
+
+        <div class="future">
+            😂 Rir de coisas idiotas
+        </div>
+
+        <div class="future">
+            🛏️ Dividir a cama
+        </div>
+
+        <div class="future">
+            🌙 Voltar para casa juntas
+        </div>
+
+    </div>
+
+
+    <p>
+        Uma vida completamente comum...
+    </p>
+
+    <p class="script pink">
+        desde que seja uma vida com você.
+    </p>
+
+
+    <button
+        class="btn"
+        onclick="next()">
+
+        última coisa, prometo...
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 10
+===================================================== -->
+
+<section
+    class="screen"
+    id="s10">
+
+<div class="content">
+
+    <div class="lock">
+        🔒
+    </div>
+
+    <div class="eyebrow">
+        você desbloqueou uma coisa
+    </div>
+
+    <h2>
+        Uma coisa que eu nunca te contei...
+    </h2>
+
+    <p>
+        Tem uma mensagem escondida aqui.
+    </p>
+
+
+    <button
+        class="btn"
+        id="unlock"
+        onclick="unlockSecret()">
+
+        abrir meu coração
+
+    </button>
+
+
+    <div
+        class="secret card center"
+        id="secret">
+
+        <p>
+            Talvez você não saiba disso,
+            mas quando eu penso no futuro,
+            eu não penso só na casa.
+        </p>
+
+        <p>
+            Eu penso em quem vai estar nela.
+        </p>
+
+        <p>
+            Penso em acordar e encontrar você.
+        </p>
+
+        <p>
+            Penso em reclamar porque você
+            roubou o cobertor.
+        </p>
+
+        <p>
+            Penso em cozinhar alguma coisa
+            às 23h porque nós duas estamos
+            com fome.
+        </p>
+
+        <p>
+            Penso em você rindo de alguma
+            besteira que eu fiz.
+        </p>
+
+        <p>
+            Penso em uma vida
+            completamente comum...
+        </p>
+
+        <p class="script pink">
+            ...desde que seja uma vida com você.
+        </p>
+
+        <p>
+            E quando você estiver cansada,
+            eu quero ser um lugar onde você
+            possa descansar.
+        </p>
+
+        <p>
+            Quando estiver feliz,
+            quero estar do seu lado
+            para comemorar.
+        </p>
+
+        <p>
+            Quando estiver perdida,
+            quero te ajudar a encontrar
+            o caminho.
+        </p>
+
+
+        <button
+            class="btn"
+            onclick="next()">
+
+            agora sim. a última. ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELA 11
+===================================================== -->
+
+<section
+    class="screen"
+    id="s11">
+
+<div class="content">
+
+    <div class="hero-heart">
+        ♥
+    </div>
+
+    <div class="eyebrow">
+        para a pessoa que despertou
+        o meu lado mais verdadeiro
+    </div>
+
+    <h2>
+        Você é o meu chamado favorito.
+    </h2>
+
+    <p>
+        Eu não prometo que todos os dias
+        serão fáceis.
+    </p>
+
+    <p>
+        Mas prometo que, nos dias difíceis,
+        eu vou continuar escolhendo estar aqui.
+    </p>
+
+    <p>
+        Eu amo seus olhos,
+        sua risada,
+        seu cheiro,
+        suas manias,
+        suas partes bobas
+        e todos os pequenos detalhes
+        que fazem você ser você.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="script">
+        Eu te amo, meu benzinho.
+    </p>
+
+    <p class="script pink">
+        Minha luz favorita. ✨
+    </p>
+
+    <p class="note">
+        E agora vai descansar,
+        porque esse site não vai deixar
+        você escapar do sono. 😌
+    </p>
+
+    <button
+        class="btn secondary"
+        onclick="startHearts(); this.innerText='eu também te amo ❤️'">
+
+        ♡
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     Continua dentro do próprio HTML.
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+function createStars() {
+
+    const sky =
+        document.getElementById("sky");
+
+    for (
+        let i = 0;
+        i < 160;
+        i++
+    ) {
+
+        const star =
+            document.createElement("div");
+
+        star.className =
+            "star";
+
+        star.style.left =
+            Math.random() * 100 + "%";
+
+        star.style.top =
+            Math.random() * 100 + "%";
+
+        star.style.animationDelay =
+            Math.random() * 4 + "s";
+
+        star.style.opacity =
+            .25 +
+            Math.random() * .7;
+
+        sky.appendChild(star);
+
+    }
+
+}
+
+createStars();
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+let current = 1;
+
+
+function updateNavigation() {
+
+    const backBtn =
+        document.getElementById("backBtn");
+
+    const musicBox =
+        document.getElementById("musicBox");
+
+
+    /* BOTÃO VOLTAR */
+
+    if (current > 1) {
+
+        backBtn.style.display =
+            "block";
+
+    } else {
+
+        backBtn.style.display =
+            "none";
+
+    }
+
+
+    /* MÚSICA */
+
+    if (current >= 2) {
+
+        musicBox.style.display =
+            "block";
+
+    } else {
+
+        musicBox.style.display =
+            "none";
+
+    }
+
+}
+
+
+function next() {
+
+    if (current >= 11) {
+
+        return;
+
+    }
+
+
+    const oldScreen =
+        document.getElementById(
+            "s" + current
+        );
+
+
+    if (oldScreen) {
+
+        oldScreen.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    current++;
+
+
+    const newScreen =
+        document.getElementById(
+            "s" + current
+        );
+
+
+    if (newScreen) {
+
+        newScreen.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+
+    updateNavigation();
+
+
+    if (current === 6) {
+
+        startGame();
+
+    }
+
+
+    if (current === 11) {
+
+        startHearts();
+
+    }
+
+}
+
+
+function previous() {
+
+    if (current <= 1) {
+
+        return;
+
+    }
+
+
+    const oldScreen =
+        document.getElementById(
+            "s" + current
+        );
+
+
+    if (oldScreen) {
+
+        oldScreen.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    current--;
+
+
+    const newScreen =
+        document.getElementById(
+            "s" + current
+        );
+
+
+    if (newScreen) {
+
+        newScreen.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+
+    updateNavigation();
+
+}
+
+
+/* Inicia a navegação corretamente */
+
+updateNavigation();
+
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+const audio =
+    document.getElementById("audio");
+
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+
+function toggleMusic() {
+
+    if (audio.paused) {
+
+        audio.play()
+
+            .then(() => {
+
+                musicBtn.innerText =
+                    "♫ tocando";
+
+            })
+
+            .catch((erro) => {
+
+                console.error(
+                    "Erro ao tocar música:",
+                    erro
+                );
+
+                alert(
+                    "Não consegui tocar a música. " +
+                    "Confira se o arquivo " +
+                    "preciso-dizer-que-te-amo.mp3 " +
+                    "está na mesma pasta do index.html."
+                );
+
+            });
+
+    } else {
+
+        audio.pause();
+
+        musicBtn.innerText =
+            "♫ música";
+
+    }
+
+}
+
+
+/* =====================================================
+   JOGO
+===================================================== */
+
+let gameStarted =
+    false;
+
+let found =
+    0;
+
+
+const messages = [
+
+    "Seus olhos. Eu poderia ficar olhando para eles por horas. 👀❤️",
+
+    "Sua risada gostosa. É impossível não sorrir junto. 😭❤️",
+
+    "Seu cheiro. Eu amo ficar pertinho de você. 🫂",
+
+    "Sua boquinha rosada fazendo aquele coraçãozinho. 🥺",
+
+    "O jeito que você me faz rir das coisas mais idiotas. 💗",
+
+    "E, principalmente, o jeito que você é você. ❤️"
+
+];
+
+
+function startGame() {
+
+    if (gameStarted) {
+
+        return;
+
+    }
+
+
+    gameStarted =
+        true;
+
+
+    const area =
+        document.getElementById(
+            "game"
+        );
+
+
+    found =
+        0;
+
+
+    for (
+        let i = 0;
+        i < 6;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "gheart";
+
+
+        heart.innerText =
+            "♡";
+
+
+        heart.style.left =
+            (
+                7 +
+                Math.random() * 84
+            ) + "%";
+
+
+        heart.style.top =
+            (
+                7 +
+                Math.random() * 78
+            ) + "%";
+
+
+        heart.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+
+        heart.onclick =
+            function () {
+
+                if (
+                    heart.dataset.found
+                ) {
+
+                    return;
+
+                }
+
+
+                heart.dataset.found =
+                    "1";
+
+
+                heart.innerText =
+                    "♥";
+
+
+                found++;
+
+
+                document
+                    .getElementById(
+                        "gameText"
+                    )
+                    .innerText =
+                    messages[
+                        found - 1
+                    ];
+
+
+                if (
+                    found === 6
+                ) {
+
+                    document
+                        .getElementById(
+                            "gameText"
+                        )
+                        .innerText =
+                        "Você encontrou todos. ✨ " +
+                        "Agora pode continuar.";
+
+
+                    document
+                        .getElementById(
+                            "gameContinue"
+                        )
+                        .style.display =
+                        "inline-block";
+
+                }
+
+            };
+
+
+        area.appendChild(
+            heart
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SEGREDO
+===================================================== */
+
+function unlockSecret() {
+
+    document
+        .getElementById("secret")
+        .classList.add("show");
+
+
+    document
+        .getElementById("unlock")
+        .style.display =
+        "none";
+
+}
+
+
+/* =====================================================
+   ERRO DE FOTO
+===================================================== */
+
+function fotoErro(img) {
+
+    img.alt =
+        "Foto não encontrada. Confira a pasta fotos no GitHub.";
+
+
+    img.style.minHeight =
+        "180px";
+
+
+    img.style.objectFit =
+        "contain";
+
+
+    img.style.padding =
+        "30px";
+
+
+    img.style.opacity =
+        ".6";
+
+}
+
+
+/* =====================================================
+   CORAÇÕES FINAIS
+===================================================== */
+
+let heartsStarted =
+    false;
+
+
+function startHearts() {
+
+    /*
+       Evita que os corações sejam
+       criados várias vezes.
+    */
+
+    if (heartsStarted) {
+
+        return;
+
+    }
+
+
+    heartsStarted =
+        true;
+
+
+    const box =
+        document.getElementById(
+            "hearts"
+        );
+
+
+    const emojis = [
+
+        "❤️",
+        "♡",
+        "💗",
+        "💖",
+        "💕",
+        "✨"
+
+    ];
+
+
+    let count =
+        0;
+
+
+    const timer =
+        setInterval(() => {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "fheart";
+
+
+            heart.innerText =
+                emojis[
+                    Math.floor(
+                        Math.random() *
+                        emojis.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 +
+                "%";
+
+
+            heart.style.fontSize =
+                (
+                    18 +
+                    Math.random() * 18
+                ) +
+                "px";
+
+
+            heart.style.animationDuration =
+                (
+                    4 +
+                    Math.random() * 4
+                ) +
+                "s";
+
+
+            box.appendChild(
+                heart
+            );
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 8500);
+
+
+            count++;
+
+
+            if (count > 45) {
+
+                clearInterval(
+                    timer
+                );
+
+            }
+
+        }, 350);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
